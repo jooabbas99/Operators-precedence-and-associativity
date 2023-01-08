@@ -1,0 +1,172 @@
+/* .results-buttons-container,  */
+#results-card,
+#equation-card,
+.results-div,
+.matrix-input-div,
+.x0-div,
+.x-div,
+.y-div {
+  display: none;
+}
+
+body {
+  background-color: #e8e8e8;
+}
+
+body,
+input,
+textarea,
+select {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #565656;
+}
+label {
+  font-weight: bold;
+  font-size: large;
+  margin-right: 0.5em;
+}
+.linear-algebraic-equations-results-div table {
+  margin-bottom: 25px;
+}
+.associativity{
+  display: block;
+}
+/*******************For displaying matrices********************/
+/* for all */
+table.matrix {
+  display: inline-block;
+  width: auto; /*shrink table width*/
+  text-align: center; /*align cells to center*/
+
+  border-collapse: collapse; /*make the line inside augmented matrix collapse*/
+  border: 2px solid #555555; /*create outer brackets*/
+
+  font-weight: bold;
+}
+
+table.matrix tr {
+  border: none !important;
+}
+/* for all */
+table.matrix td {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  text-align: center;
+}
+
+/* for all */
+table.matrix input {
+  /* make input cells in a matrix have depth */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+
+  /* input matrix style */
+  min-width: 2rem;
+  max-width: 2rem;
+  text-align: center;
+  line-height: 20px;
+  padding: 1px;
+  font-weight: bold;
+}
+
+/* for augmented matrix */
+table.augmented-matrix tr td:last-child {
+  border: 1px solid #555555;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+/* Square bracket [] */
+table.square-brackets:before,
+table.matrix:before {
+  content: ' ';
+  background-color: white;
+  width: 95%;
+  text-align: center;
+  height: 2.5px;
+  position: relative;
+  top: -2px;
+  z-index: 100;
+  display: block;
+  margin: 0px auto;
+}
+
+/* Square bracket [] */
+table.square-brackets:after,
+table.matrix:after {
+  content: ' ';
+  background-color: white;
+  width: 95%;
+  text-align: center;
+  height: 2.5px;
+  position: relative;
+  top: 2px;
+  z-index: 100;
+  display: block;
+  margin: 0px auto;
+}
+
+/* Parentheses () */
+table.parentheses {
+  border-top: none !important; /*remove upper border*/
+  border-bottom: none !important; /*remove lower border*/
+  border-radius: 10px/40px !important; /* make brackets curvy  */
+}
+
+/* the vertical lines for 'Determinant' || */
+table.determinant {
+  border-top: none; /*remove upper border*/
+  border-bottom: none; /*remove lower border*/
+}
+
+table.determinant tr:first-child td,
+table.parentheses tr:first-child td {
+  padding-top: 12px !important;
+}
+
+/*Hide Arrows From Input Number --> Chrome, Safari, Edge, Opera */
+table.matrix input::-webkit-outer-spin-button,
+table.matrix input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/*Hide Arrows From Input Number --> Firefox */
+table.matrix input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/*********(Custom preloader)*********/
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #26a69a;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}

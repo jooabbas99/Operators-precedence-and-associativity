@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Compiled and minified CSS (Materialize) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+  <!-- Material design icons (Materialize) -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  <!-- my custom css -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <title>Custom calculator</title>
+</head>
+
+<body>
+  <noscript>
+    <h1 style="color: red;">Please enable JavaScript for this website to work properly</h1>
+  </noscript>
+  <nav style="background-color:cornflowerblue;">
+      <div class="center-align">
+        <span style="font-size: larger;">Custom Calculator with Operators precedence and associativity</span>
+      </div>
+  </nav>
+  <div class="container">
+    <!-- "Choose a method" Card -->
+    <div class="row" id="choose-method-card">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Operators precedence and associativity</span>
+
+            <form action="#" id="choose-a-operators-precedence">
+              <!-- Operators precedence -->
+              <div>
+                <p>Operators precedence:</p>
+                <p>Note : 0 is lowest precedence</p>
+                <p>
+                <div class="row" style="margin-bottom: 0;">
+                  <div class="col s2">
+                    <div class="input-field">
+                      <label for="plus"> + </label>
+                      <input id="plus" type="number" value="0" />
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <div class="input-field">
+                      <label for="sub"> - </label>
+                      <input id="sub" type="number" value="0" />
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <div class="input-field">
+                      <label for="mul"> x </label>
+                      <input id="mul" type="number" value="1" />
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <div class="input-field">
+                      <label for="div"> / </label>
+                      <input id="div" type="number" value="1" />
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <div class="input-field">
+                      <label for="pow"> ^ </label>
+                      <input id="pow" type="number" value="2" />
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <div class="input-field">
+                      <label for="mod"> % </label>
+                      <input id="mod" type="number" value="1" />
+                    </div>
+                  </div>
+                </div>
+                </p>
+
+                <!-- Operators associativity -->
+              </div>
+            </form>
+
+            <!-- <form action="#" id="choose-a-method-form"> -->
+            <form action="#" id="choose-a-operators-associativity">
+              <div>
+                <p>Operators associativity:</p>
+
+                <p>
+                <div class="row" style="margin-bottom: 0;">
+                  <div class="col s2">
+                    <label for="asso-plus"> + </label>
+                    <div class="input-field">
+                      <select id="asso-plus" name="asso-plus" class="associativity">
+                        <option selected value="LTR">LTR</option>
+                        <option value="RTL">RTL</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <label for="asso-sub"> - </label>
+                    <div class="input-field">
+                      <select id="asso-sub" name="asso-sub" class="associativity">
+                        <option selected value="LTR">LTR</option>
+                        <option value="RTL">RTL</option>
+                      </select>
+
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <label for="asso-mul"> x </label>
+                    <div class="input-field">
+                      <select id="asso-mul" name="asso-mul" class="associativity">
+                        <option selected value="LTR">LTR</option>
+                        <option value="RTL">RTL</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <label for="asso-div"> / </label>
+                    <div class="input-field">
+                      <select id="asso-div" name="asso-div" class="associativity">
+                        <option selected value="LTR">LTR</option>
+                        <option value="RTL">RTL</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <label for="asso-pow"> ^ </label>
+                    <div class="input-field">
+                      <select id="asso-pow" name="asso-pow" class="associativity">
+                        <option value="LTR">LTR</option>
+                        <option selected value="RTL">RTL</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <label for="asso-mod"> % </label>
+                    <div class="input-field">
+                      <select id="asso-mod" name="asso-mod" class="associativity">
+                        <option selected value="LTR">LTR</option>
+                        <option value="RTL">RTL</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                </p>
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preloader (at page initial only) -->
+    <div class="center-align pageLoadAnimation">
+      <div class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- "Equation" Card -->
+    <div class="row" id="equation-card">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-content" style="padding-bottom: 5px;">
+            <span class="card-title">Enter a Equation</span>
+
+            <!-- Form start -->
+            <div class="row">
+              <form>
+                <div class="equation-input-div col s12">
+                  <!-- Equation input -->
+                  <div class="row" style="margin-bottom: 0;">
+                    <div class="col s12">
+                      <div class="input-field">
+                        <input id="math-input" type="text" />
+                        <label for="math-input">`f(x)=`</label>
+                        <span class="helper-text" data-error="Invalid function">e.g.:
+                          3 + 5 / 8 - (2*5+3) ^ 2</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                  <!-- equation preview -->
+                  <div class="row">
+                    <div class="col s12 center-align" style="overflow-x: auto; overflow-y: hidden;">
+                      <p id="math-preview" class="equation-display" style="font-size: x-large; padding-top: 15px;"></p>
+                    </div>
+                  </div>
+
+
+                <!-- calculate button -->
+                <div class="row" style="margin-bottom: 5px;">
+                  <div class="col s12 center-align">
+                    <input type="submit" disabled value="Calculate" class="btn calc-btn" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- "Results" card -->
+    <div id="results-card" class="row">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Results</span>
+            <!-- calculation in progress animation  -->
+            <!-- <div class="row results-progress-bar" style="margin-bottom: 0;">
+              <div class="col s12">
+                <div class="card-action">
+                  <div class="progress">
+                    <div class="indeterminate"></div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- results div -->
+            <div class="row results-div" id="results-d" style="overflow-x: auto;">
+            </div>
+
+            <!-- result buttons div (filled by js) -->
+            <!-- <div class="results-buttons-container row right-align" style="padding-top: 30px;"></div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compiled and minified (materialize) JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

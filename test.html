@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <th>
+                <center><span>Gradient and hessian </span></center>
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    ∇f = 𝜕f/𝜕x i+𝜕f/𝜕y j
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    𝜕f/𝜕x=${results.dfdx1}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    𝜕f/𝜕y = ${results.dfdy1}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ∇𝑓 = ${results.gradient}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    𝜕2𝑓/𝜕x2 = ${results.d2fdx2}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    𝜕2𝑓/𝜕y2 = ${results.d2fdy2}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    𝜕2𝑓/𝜕x𝜕y = ${results.d2fdxdy}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    matrix here
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    |𝐻| = ${results.detHessianMatrix}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    |𝐻| = ${results.detHessianMatrix}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Get value of h
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    g(h) = (x0 +𝜕𝑓/𝜕x*h , y0 + 𝜕𝑓/𝜕y h )
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    x = ${results.xValueOfGh}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    y = ${results.yValueOfGh}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    f(g(h)) = ${results.gh}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    f(g(h)) = ${results.ghAfterSimplify}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    let g`(h) = 0
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    g`(h) = ${results.dgh}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    g`(h) = 0 => ${results.eq}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    g`(h) = ${results.resultEquation}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    (𝑥, 𝑦) coordinates corresponding to this point h = ${results.resultEquation}
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    x = ${results.newX}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    y = ${results.newY}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
